@@ -8,7 +8,6 @@ const urlsToCache = [
   'practice_advanced.php',
   'downloads.html',
   'profile.php',
-  'feedback.html',
   'style.css',
   'script.js',
   'practice_data.js',
