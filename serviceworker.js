@@ -1,7 +1,6 @@
 const CACHE_NAME = 'linguomas-cache-v1';
 const urlsToCache = [
-  '/linguomas/',
-  '/linguomas/index.html',
+  '.',
   'index.html',
   'spanish.html',
   'portugues.html',
@@ -19,28 +18,37 @@ const urlsToCache = [
   'images/icon-512.png'
 ];
 
+// Установка Service Worker — кешируем файлы
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('🔧 Кеш открыт');
+        console.log('✅ Кеш открыт');
         return cache.addAll(urlsToCache);
+      })
+      .catch(err => {
+        console.warn('⚠️ Ошибка кеширования:', err);
       })
   );
 });
 
+// Перехват запросов — отдаём из кеша
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
         if (response) {
-          return response;
+          return response; // Отдаём из кеша
         }
-        return fetch(event.request);
+        return fetch(event.request).catch(() => {
+          // Если сеть недоступна и файла нет в кеше — отдаём fallback
+          return caches.match('index.html');
+        });
       })
   );
 });
 
+// Активация — удаляем старые кеши
 self.addEventListener('activate', event => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
