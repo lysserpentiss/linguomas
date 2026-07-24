@@ -1,6 +1,7 @@
 const CACHE_NAME = 'linguomas-cache-v1';
 const urlsToCache = [
   '/'
+  '/linguomas/index.html',
   'index.html',
   'spanish.html',
   'portugues.html',
