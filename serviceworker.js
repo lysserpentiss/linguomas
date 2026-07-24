@@ -1,6 +1,6 @@
 const CACHE_NAME = 'linguomas-cache-v1';
 const urlsToCache = [
-  '/'
+  '/linguomas/',              // ← ЭТО ГЛАВНОЕ! КОРЕНЬ ПАПКИ
   '/linguomas/index.html',
   'index.html',
   'spanish.html',
@@ -9,7 +9,6 @@ const urlsToCache = [
   'practice.php',
   'practice_advanced.php',
   'downloads.html',
-  'profile.php',
   'style.css',
   'script.js',
   'practice_data.js',
