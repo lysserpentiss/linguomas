@@ -2,7 +2,7 @@
   "name": "LinguoMas — учи испанский и португальский",
   "short_name": "LinguoMas",
   "description": "Интерактивный помощник для изучения испанского и бразильского португальского",
-  "start_url": "index.html",        
+   "start_url": "/linguomas/index.html",        
   "display": "standalone",
   "background_color": "#FDF8F0",
   "theme_color": "#B22222",
