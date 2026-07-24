@@ -1,0 +1,134 @@
+<html>
+
+<head>
+<title>linguomas - portugues</title>
+<link rel="stylesheet" type="text/css" href="style.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- чтобы на телефоне красиво было -->
+<link rel="preconnect" href="https://fonts.googleapis.com"> <!-- шрифты -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<div class="logo">🌎 LINGUOMAS</div>
+	<nav>
+	<ul>
+	<li><a href="index.html">Главная</a></li>
+	<li><a href="spanish.html">Испанский</a></li>
+	<li><a href="portugues.html" class="active">Португальский</a></li>
+	<li><a href="compare.html">Сравнить</a></li>
+	<li><a href="practice.php">Практика</a></li>
+	<li><a href="practice_advanced.php">Продвинутая практика</a></li>
+	<li><a href="downloads.html">Шпаргалки</a></li>
+	<li><a href="profile.php">Профиль</a></li>
+	<li><a href="feedback.php">Обратная связь</a></li>
+	</ul>
+	</nav>
+	</div>
+</header>
+</body>
+
+<main>
+
+<div class="back-nav">
+<div class="container">
+<a href="index.html" class="back-link">← На главную</a>
+<span class="lang-title">Portuquês</span>
+</div>
+</div>
+<section class="dictionary-section pt-section">
+<div class="container">
+<div class="dict-header">
+<h2 class="section-title">Словарь</h2>
+<div class="bilingual-switch">
+<span>Режим:</span>
+<button class="biling-btn active" data-mode="es">🇪🇸 Только португальский</button>
+<button class="biling-btn" data-mode="bi">🔀 Билингва (исп + порт)</button>
+</div>
+</div>
+<p class="section-subtitle">Листай темы и выбирай нужную</p>
+<!-- ===== ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ С ТЕМАМИ ===== -->
+<div class="theme-scroll-wrapper">
+<button class="theme-scroll-btn left" id="scrollLeft">‹</button>
+<div class="theme-scroll-container" id="themeScroll">
+<button class="theme-chip active" data-theme="all">📚 Все</button>
+<button class="theme-chip" data-theme="comida">🍔 Еда</button>
+<button class="theme-chip" data-theme="viajes">✈️ Путешествия</button>
+<button class="theme-chip" data-theme="familia">👨‍👩‍👧‍👦 Семья</button>
+<button class="theme-chip" data-theme="verbos">🏃 Глаголы</button>
+<button class="theme-chip" data-theme="clima">☀️ Погода</button>
+<button class="theme-chip" data-theme="colores">🎨 Цвета</button>
+<button class="theme-chip" data-theme="saludos">👋 Приветствия</button>
+<button class="theme-chip" data-theme="profesiones">💼 Профессии</button>
+<button class="theme-chip" data-theme="house">🏡 Дом, квартира</button>
+</div>
+<button class="theme-scroll-btn right" id="scrollRight">›</button>
+</div>
+
+<div class="word-list" id="portuqueseWordList">
+<div class="word-card pt-card" data-theme="comida" data-word-id="2">
+<div class="word-main">
+<span class="foreign-word pt-word">pão</span>
+<span class="translation">— хлеб</span>
+<span class="transcription">[pɐ̃w]</span>
+<button class="fav-btn" data-word-id="2">♡</button>
+</div>
+<div class="word-bilingue" style="display:none;">
+<span class="es-word">pan</span>
+<span class="es-translation">— хлеб</span>
+<span class="es-transcription">[pan]</span>
+<button class="fav-btn" data-word-id="1">♡</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- остальные слова по аналогии -->
+
+<!-- ======== БЛОК: ГРАММАТИКА (КОРОТКО) ======== -->
+<!-- <section class="grammar-section"> -->
+<!-- <div class="container"> -->
+<!-- <h2 class="section-title">Грамматика</h2> -->
+<!-- <p class="section-subtitle">Основные времена на пальцах</p> -->
+<!-- <div class="grammar-grid"> -->
+<!-- <div class="grammar-card"> -->
+<!-- <h3>Настоящее время (Presente)</h3> -->
+<!-- <p><strong>falar  (говорить):</strong></p> -->
+<!-- <ul> -->
+<!-- <li>eu <strong>falo</strong></li> -->
+<!-- <li>você <strong>fala</strong></li> -->
+<!-- <li>ele/ela <strong>fala</strong></li> -->
+<!-- <li>nós <strong>falamos</strong></li> -->
+<!-- <li>vocês <strong>falam</strong></li> -->
+<!-- <li>eles/elas <strong>falam</strong></li> -->
+<!-- </ul> -->
+<!-- <p class="example">Exemplo: <em>Eu falo português.</em></p> -->
+<!-- остальные штуки по аналогии -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </section> -->
+</main>
+
+<!-- ========== КНОПКА "НАВЕРХ" ========== -->
+<button id="backToTop" class="back-to-top">⬆ Наверх</button>
+
+<footer class="footer">
+<div class="container">
+<p>LinguoMas, 2026. Сделано с ❤️ для изучения языков</p>
+</div>
+</footer>
+
+<!-- ПОДКЛЮЧАЕМ JAVASCRIPT ДЛЯ РАБОТЫ ЦИТАТ -->
+    <script src="script.js"></script>
+</body>
+</html>
+
+  
+
+       

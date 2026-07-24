@@ -1,0 +1,177 @@
+<html>
+
+<head>
+<title>linguomas</title> 
+<link rel="preconnect" href="https://fonts.googleapis.com"> <!-- шрифты -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> <!-- кодировка -->
+<link rel="stylesheet" type="text/css" href="style.css"> <!-- стили -->
+</head>
+<!-- PWA Manifest -->
+<link rel="manifest" href="manifest.json">
+
+<!-- Service Worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/serviceworker.js')
+      .then(() => console.log('✅ Service Worker зарегистрирован'))
+      .catch(err => console.error('❌ Ошибка Service Worker:', err));
+  }
+</script>
+
+<!-- Иконка для PWA -->
+<link rel="apple-touch-icon" href="images/icon-192.png">
+<meta name="theme-color" content="#B22222">
+<body>
+<header>
+<div class="container"> <!-- Контейнер ограничивает ширину контента (1200px) и центрирует -->
+<div class="logo">🌎 LINGUOMAS</div> <!-- ЛОГОТИП: Ссылка на главную страницу, с эмодзи и названием -->
+	<nav> <!-- НАВИГАЦИЯ: Список ссылок на все разделы сайта -->
+	<ul>  <!-- Класс "active" подсвечивает текущую страницу (красный фон) -->
+	<li><a href="index.html" class="active">Главная</a></li>
+	<li><a href="spanish.html">Испанский</a></li>
+	<li><a href="portugues.html">Португальский</a></li>
+	<li><a href="compare.html">Сравнить</a></li>
+	<li><a href="practice.php">Практика</a></li>
+	<li><a href="practice_advanced.php">Продвинутая практика</a></li>
+	<li><a href="downloads.html">Шпаргалки</a></li>
+	<li><a href="profile.php">Профиль</a></li> <!-- profile.php — динамическая страница (PHP), требует авторизации, поэтому ссылка на .php -->
+	<li><a href="feedback.php">Обратная связь</a></li>
+	</ul>
+	</nav>
+	</div>
+	</header>
+</body>
+
+<main>
+
+<section class="hero">
+<div class="container hero-content">
+<div class="hero-text"> <!-- Левая часть Hero: текст и кнопка -->
+<span class="hero-badge">🌎 Добро пожаловать!</span> <!-- Бейдж с приветствием (полупрозрачный фон, размытие) -->
+<h1>Dos mundos.<br> Uma alma.</h1>
+<p class="hero-subtitle">
+Учи испанский и португальский вместе с LinguoMas ❤</p>
+</div>
+<div class="hero-image"> <!-- Правая часть Hero: декоративные эмодзи (флаги + сердечко) -->
+<div class="hero-decor">
+<span class="decor-emoji">ES</span>
+<span class="decor-emoji">❤️</span>
+<span class="decor-emoji">BR</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="language-chioce" id="choose-language">
+<div class="container">
+<h2 class="section-title">Выбери свой язык</h2>
+<p class="section-subtitle">Погрузись в атмосферу Романского мира</p>
+<div class="lang-cards"> <!-- lang-cards — флекс-контейнер, который располагает карточки в ряд -->
+<!-- lang-card — общий класс, lang-es — красная тема -->
+<a href="spanish.html" class="lang-card lang-es">
+<div class="lang-card-inner"> <!-- Внутренний контейнер карточки (для стилизации) -->
+<img src="images/spain.jpg" alt "Испания" class="lang-flag-img">
+<span class="lang-frag">ES</span>
+<h3>Испанский</h3>
+<p class="lang-desc">Язык солнца, огня и Донована Каррильо.</p>
+<div class="lang-tags"> <!-- lang-tags — контейнер для тегов-слов на языке. -->
+<span>Hola</span>
+<span>Amor</span>
+<span>Lluvia</span>
+<span>Murmullo</span>
+</div>
+</div>
+</a>
+<a href="portugues.html" class="lang-card lang-pt"> <!-- lang-pt — добавляет зелёную тему. -->
+<div class="lang-card-inner">
+<img src="images/brazil.jpg" alt "Бразилия" class="lang-flag-img">
+<span class="lang-frag">BR</span>
+<h3>Португальский</h3>
+<p class="lang-desc">Язык музыки, карнавала и всех шипящих звуков мира.</p>
+<div class="lang-tags">
+<span>Olá</span>
+<span>Сrepúsculo</span>
+<span>Caralho</span>
+<span>Loucura</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+
+<section class="inspiration animate-on-scroll">
+<div class="container">
+<h2 class="section-title">Вдохновение</h2>
+<div class="quotes-carousel" id="quotesCarousel"> <!-- quotes-carousel — флекс-контейнер с overflow: hidden
+<!-- ЦИТАТЫ БУДУТ ВСТАВЛЯТЬСЯ ЧЕРЕЗ JS -->
+</div>
+<div class="quote-controls">
+<button class="quote-btn prev" id="prevQuote">back</button> <!-- ↑ Кнопка "Назад". id="prevQuote" — для JS. -->
+<button class="quote-btn next" id="nextQuote">next</button> <!-- ↑ Кнопка "Вперёд". id="nextQuote" — для JS. -->
+</div>
+</div>
+</section>
+
+<section class="daily-quote">
+<div class="container">
+<div class="daily-quote-box"> <!-- daily-quote-box — центральный блок с цитатой. -->
+<span class="daily-icon">📖</span>
+<blockquote id="dailyQuoteText">
+"Quien no habla, no vive." — "Quem não fala, não vive."
+</blockquote> <!-- ↑ Блок цитаты. id="dailyQuoteText" — для JS (меняет текст).  blockquote — семантический тег для цитат. -->
+<cite id="dailyQuoteAuthor">— Испанская и португальская поговорка</cite>
+<button class="btn btn-refresh" id="refreshQuote">Обновить цитату 🔄</button>
+</div>
+</div>
+</section>
+
+<!-- ========== БЛОК: КУЛЬТУРНЫЙ ГИД ========== -->
+<section class="culture-guide">
+<div class="container">
+<h2 class="section-title">🌍 Погружение в культуру</h2>
+<p class="section-subtitle">Книги, фильмы и подкасты для изучающих испанский и португальский</p>
+
+<!-- Переключение языка -->
+<div class="culture-lang-tabs">
+<button class="culture-lang-tab active" data-lang="es">🇪🇸 Испанский</button>
+<button class="culture-lang-tab" data-lang="pt">🇧🇷 Португальский</button>
+</div>
+
+<!-- Переключение категорий -->
+<div class="culture-category-tabs">
+<button class="culture-category-tab active" data-category="books">📚 Книги</button>
+<button class="culture-category-tab" data-category="movies">🎬 Фильмы и сериалы</button>
+<button class="culture-category-tab" data-category="podcasts">🎧 Подкасты</button>
+</div>
+
+<!-- Контейнер для карточек -->
+<div class="culture-cards" id="cultureCards">
+<!-- Карточки будут вставлены через JS -->
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- ========== КНОПКА "НАВЕРХ" ========== -->
+<button id="backToTop" class="back-to-top">⬆ Наверх</button>
+
+<!-- ========== ФУТЕР ========== -->
+<footer class="footer">
+<div class="container">
+<p>LinguoMas, 2026. Сделано с ❤️ для изучения языков</p>
+</div>
+</footer>
+
+<!-- ПОДКЛЮЧАЕМ JAVASCRIPT  -->
+    <script src="script.js"></script>
+	
+</body>
+</html>
+
+  
+
+       

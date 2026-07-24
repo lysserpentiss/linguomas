@@ -1,0 +1,146 @@
+<html>
+
+<head>
+<title>linguomas - spanish</title>
+<link rel="stylesheet" type="text/css" href="style.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- чтобы на телефоне красиво было -->
+<link rel="preconnect" href="https://fonts.googleapis.com"> <!-- шрифты -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<div class="logo">🌎 LINGUOMAS</div>
+	<nav>
+	<ul>
+	<li><a href="index.html">Главная</a></li>
+	<li><a href="spanish.html" class="active">Испанский</a></li>
+	<li><a href="portugues.html">Португальский</a></li>
+	<li><a href="compare.html">Сравнить</a></li>
+	<li><a href="practice.php">Практика</a></li>
+	<li><a href="practice_advanced.php">Продвинутая практика</a></li>
+	<li><a href="downloads.html">Шпаргалки</a></li>
+	<li><a href="profile.php">Профиль</a></li>
+	<li><a href="feedback.php">Обратная связь</a></li>
+	</ul>
+	</nav>
+	</div>
+</header>
+</body>
+
+<main>
+
+<!-- ========== КНОПКА "НАВЕРХ" ========== -->
+<button id="backToTop" class="back-to-top">⬆ Наверх</button>
+
+<div class="back-nav">
+<div class="container">
+<a href="index.html" class="back-link">← На главную</a> <!-- ↑ Ссылка на главную страницу. back-link — стилизованная ссылка. -->
+<span class="lang-title">Español</span>
+</div>
+</div>
+
+<section class="dictionary-section"> <!-- ↑ dictionary-section — основной контейнер для словаря. -->
+<div class="container">
+<div class="dict-header"> <!-- dict-header — флекс-контейнер, который выравнивает заголовок и переключатель в одну строку. -->
+<h2 class="section-title">Словарь</h2>
+<div class="bilingual-switch"> <!-- bilingual-switch — контейнер для кнопок переключения режима. -->
+<span>Режим:</span>
+<button class="biling-btn active" data-mode="es">🇪🇸 Только испанский</button>
+<button class="biling-btn" data-mode="bi">🔀 Билингва (исп + порт)</button> <!-- ↑ Кнопка "Билингва". При клике показывает оба языка. data-mode="bi" — указывает режим (билингва). -->
+</div>
+</div>
+<p class="section-subtitle">Листай темы и выбирай нужную</p>
+
+<!-- ===== ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ С ТЕМАМИ ===== -->
+<div class="theme-scroll-wrapper">  <!-- ↑ theme-scroll-wrapper — контейнер для скролла с кнопками. -->
+<button class="theme-scroll-btn left" id="scrollLeft">‹</button> <!-- ↑ Кнопка прокрутки влево. id="scrollLeft" — для JavaScript. class="left" — для стилизации (можно не использовать). -->
+<div class="theme-scroll-container" id="themeScroll">
+<button class="theme-chip active" data-theme="all">📚 Все</button> <!-- ↑ Кнопка темы "Все". class="active" — активна по умолчанию. data-theme="all" — показывает все слова. -->
+<button class="theme-chip" data-theme="comida">🍔 Еда</button> <!-- ↑ data-theme="comida" — фильтрует слова по теме "Еда". -->
+<button class="theme-chip" data-theme="viajes">✈️ Путешествия</button>
+<button class="theme-chip" data-theme="familia">👨‍👩‍👧‍👦 Семья</button>
+<button class="theme-chip" data-theme="verbos">🏃 Глаголы</button>
+<button class="theme-chip" data-theme="clima">☀️ Погода</button>
+<button class="theme-chip" data-theme="colores">🎨 Цвета</button>
+<button class="theme-chip" data-theme="saludos">👋 Приветствия</button>
+<button class="theme-chip" data-theme="profesiones">💼 Профессии</button>
+<button class="theme-chip" data-theme="house">🏡 Дом, квартира</button>
+</div>
+<button class="theme-scroll-btn right" id="scrollRight">›</button>
+</div>
+
+<div class="word-list" id="spanishWordList">
+<div class="word-card" data-theme="comida" data-word-id="1">
+<div class="word-main">
+<span class="foreign-word">pan</span>
+<span class="translation">— хлеб</span>
+<span class="transcription">[pan]</span>
+<button class="fav-btn" data-word-id="1">♡</button> <!-- ↑ Кнопка избранного. data-word-id="1" — ID слова (для привязки к БД). ♡ — пустое сердечко. При клике становится ❤️. -->
+</div>
+<div class="word-bilingue" style="display:none;">
+<span class="port-word">pão</span>
+<span class="port-translation">— хлеб</span>
+<span class="port-transcription">[pɐ̃w]</span>
+<button class="fav-btn" data-word-id="2">♡</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- остальные слова по аналогии -->
+
+<!-- ======== БЛОК: ГРАММАТИКА (КОРОТКО) ======== -->
+<!-- <section class="grammar-section"> -->
+<!-- <div class="container"> -->
+<!-- <h2 class="section-title">Грамматика</h2> -->
+<!-- <p class="section-subtitle">Основные времена на пальцах</p> -->
+<!-- <div class="grammar-grid"> -->
+<!-- <div class="grammar-card"> -->
+<!-- <h3>Настоящее время (Presente)</h3> -->
+<!-- <p><strong>hablar (говорить):</strong></p> -->
+<!-- <ul> -->
+<!-- <li>yo <strong>hablo</strong></li> -->
+<!-- <li>tú <strong>hablas</strong></li> -->
+<!-- <li>él/ella <strong>habla</strong></li> -->
+<!-- <li>nosotros <strong>hablamos</strong></li> -->
+<!-- <li>vosotros <strong>habláis</strong></li> -->
+<!-- <li>ellos <strong>hablan</strong></li> -->
+<!-- </ul> -->
+<!-- остальные штуки по аналогии -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </section> -->
+</main>
+
+<button id="backToTop" class="back-to-top">⬆ Наверх</button>
+    <!-- ↑ id="backToTop" — для JavaScript (обработка клика).
+         class="back-to-top" — для стилей (позиция, анимация). -->
+		 
+<footer class="footer">
+<div class="container">
+<p>LinguoMas, 2026. Сделано с ❤️ для изучения языков</p>
+</div>
+</footer>
+
+<!-- ============================================================
+         ПОДКЛЮЧЕНИЕ JAVASCRIPT
+         ============================================================ -->
+    <script src="script.js"></script>
+    <!-- ↑ Файл script.js содержит всю логику:
+         - переключение режима билингва,
+         - фильтрацию слов по темам,
+         - горизонтальный скролл тем,
+         - добавление в избранное,
+         - кнопку "Наверх". -->
+</body>
+</html>
+
+  
+
+       

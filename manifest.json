@@ -1,0 +1,21 @@
+{
+  "name": "LinguoMas — учи испанский и португальский",
+  "short_name": "LinguoMas",
+  "description": "Интерактивный помощник для изучения испанского и бразильского португальского",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDF8F0",
+  "theme_color": "#B22222",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

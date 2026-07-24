@@ -1,0 +1,863 @@
+<html>
+
+<head>
+<title>linguomas - downloads</title>
+<link rel="stylesheet" type="text/css" href="style.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- чтобы на телефоне красиво было -->
+<link rel="preconnect" href="https://fonts.googleapis.com"> <!-- шрифты -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<style>
+/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ ШПАРГАЛОК ===== */
+.downloads-section {
+padding: 40px 0 60px;
+background: #FDF8F0;
+}
+
+/* ТАБЫ */
+.downloads-tabs {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+margin-bottom: 30px;
+justify-content: center;
+}
+.downloads-tab {
+padding: 12px 28px;
+border: 2px solid #e0e0e0;
+border-radius: 50px;
+background: white;
+font-weight: 700;
+font-size: 16px;
+cursor: pointer;
+transition: all 0.3s;
+color: #555;
+}
+.dowloads-tab:hover {
+border-color: #B22222;
+color: #B22222;
+}
+.downloads-tab.active {
+border-color: #B22222;
+background: #B22222;
+color: white;
+}
+
+.tab-content {
+display: none;
+animation: fadeIn 0.5 ease;
+}
+.tab-content.active {
+display: block;
+}
+@keyframes fadeIn {
+from {opacity:0, transform: translateY(15px); }
+to {opacity:1; transform: translateY(0); }
+}
+
+/* ===== ЗВУКИ ===== */
+.sound-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 16px;
+}
+@media (max-width: 768px) {
+.sound-grid { grid-template-columns: 1fr; }
+}
+
+.sound-group-header {
+grid-column: 1 / -1;
+font-family: 'PlayFair Display', serif;
+font-size: 22px;
+margin: 12px 0 2px 0;
+padding-bottom: 6px;
+border-bottom: 3px solid #f0f0f0;
+}
+.sound-group-header.es-header {
+color: #B22222;
+border-bottom-color: #FFE8E0;
+}
+.sound-group-header.pt-header {
+color: #006437;
+border-bottom-color: #E0F5E8;
+}
+
+.sound-card {
+background: white;
+padding: 14px 18px;
+border-radius: 14px;
+box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+display: flex;
+align-items: center;
+gap: 14px;
+transition: all 0.3s;
+border: 1px solid #f5f5f5;
+}
+.sound-card:hover {
+transform: translateY(-3px);
+box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+border-color: #ddd;
+}
+.sound-card .letter {
+font-size: 28px;
+font-weight: 800;
+min-width: 44px;
+text-align: center;
+color: #B22222;
+}
+.sound-card .letter.pt {
+color: #006437;
+}
+.sound-card .info {
+flex: 1;
+min-width: 0;
+}
+.sound-card .info .word {
+font-weight: 700;
+font-size: 17px;
+}
+.sound-card .info .hint {
+color: #888;
+font-size: 13px;
+margin-top: 1px;
+line-height: 1.3;
+}
+.sound-card .info .example {
+background: #f5f5f5;
+padding: 2px 12px;
+border-radius: 12px;
+font-size: 13px;
+display: inline-block;
+margin-top: 3px;
+}
+.audio-btn {
+background: none;
+border: 1px solid #ddd;
+border-radius: 50%;
+width: 38px;
+height: 38px;
+font-size: 16px;
+cursor: pointer;
+transition: all 0.3s;
+flex-shrink: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.audio-btn:hover {
+border-color: #B22222;
+background: #FFF5F0;
+transform: scale(1.05);
+}
+
+/* ===== УДАРЕНИЕ ===== */
+.stress-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 25px;
+align-items: stretch;
+}
+@media (max-width: 768px) {
+.stress-grid { grid-template-columns: 1fr; }
+}
+.stress-card {
+background: white;
+padding: 20px 24px;
+border-radius: 16px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+display: flex;
+flex-direction: column;
+height: 100%;
+}
+.stress-card h3 {
+font-family: 'Playfair Display', serif;
+font-size: 22px;
+margin-bottom: 12px;
+}
+.stress-card .rule {
+color: #555;
+font-size: 15px;
+line-height: 1.7;
+margin-bottom: 10px;
+flex: 1;
+}
+.stress-card .rule strong {
+color: #2D2D2D;
+}
+.stress-card .examples {
+background: #FDF8F0;
+padding: 8px 14px;
+border-radius: 12px;
+font-size: 14px;
+margin-top: 4px;
+}
+.stress-card .examples .es { color: #B22222; font-weight: 600; }
+.stress-card .examples .pt { color: #006437; font-weight: 600; }
+
+/* ===== ИСКЛЮЧЕНИЯ ===== */
+.exception-list {
+display: flex;
+flex-direction: column;
+gap: 14px;
+}
+.exception-item {
+background: white;
+padding: 16px 22px;
+border-radius: 14px;
+box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+border-left: 4px solid #B22222;
+transition: all 0.3s;
+}
+.exception-item:hover {
+transform: translateX(5px);
+box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+.exception-item.pt-ex {
+border-left-color: #006437;
+}
+.exception-item .title {
+font-weight: 700;
+font-size: 18px;
+}
+.exception-item .title .es { color: #B22222; }
+.exception-item .title .pt { color: #006437; }
+.exception-item .desc {
+color: #555;
+margin-top: 4px;
+font-size: 15px;
+line-height: 1.6;
+}
+.exception-item .example {
+background: #f5f5f5;
+padding: 5px 14px;
+border-radius: 12px;
+font-size: 14px;
+margin-top: 6px;
+display: inline-block;
+}		
+/* ===== КНОПКА "НАВЕРХ" ===== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 20px;
+    background: #B22222;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(178, 34, 34, 0.3);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+.back-to-top:hover {
+    background: #8B1A1A;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(178, 34, 34, 0.5);
+}
+/* ===== АКЦЕНТЫ (СПРАВОЧНЫЙ РАЗДЕЛ) ===== */
+.accents-reference { max-width: 800px; margin: 0 auto; }
+.accents-ref-tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; }
+.accents-ref-tab { padding: 8px 24px; border: 2px solid #e0e0e0; border-radius: 30px; background: white; font-weight: 700; cursor: pointer; transition: all 0.3s; color: #555; }
+.accents-ref-tab:hover { border-color: #B22222; color: #B22222; }
+.accents-ref-tab.active { border-color: #B22222; background: #B22222; color: white; }
+
+.accents-ref-map { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0; }
+@media (max-width: 600px) { .accents-ref-map { grid-template-columns: repeat(2, 1fr); } }
+
+.accents-ref-region { padding: 20px 10px; border: 2px solid #e0e0e0; border-radius: 16px; text-align: center; cursor: pointer; transition: all 0.3s; background: #FDF8F0; }
+.accents-ref-region:hover { transform: translateY(-5px); border-color: #B22222; box-shadow: 0 8px 25px rgba(0,0,0,0.06); }
+.accents-ref-region .region-emoji { font-size: 32px; display: block; margin-bottom: 5px; }
+.accents-ref-region .region-name { font-weight: 700; font-size: 14px; color: #333; }
+.accents-ref-region .region-hint { font-size: 12px; color: #888; margin-top: 3px; }
+.accents-ref-region.selected { border-color: #B22222; background: #FFF5F0; }
+
+.accents-ref-info { background: #FDF8F0; border-radius: 16px; padding: 20px; min-height: 100px; margin-top: 10px; text-align: center; }
+.accents-ref-region-name { font-size: 20px; font-weight: 700; color: #333; margin-bottom: 10px; }
+.accents-ref-phrase { font-size: 22px; font-style: italic; color: #555; margin-bottom: 10px; }
+.accents-ref-explanation { font-size: 16px; color: #888; }
+/* ===== СПРАВОЧНЫЙ БЛОК (ГЛОССАРИЙ) ===== */
+.accents-ref-glossary {
+    margin-top: 30px;
+    padding: 25px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    border: 1px solid #f0f0f0;
+}
+
+.glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.glossary-item {
+    background: #FDF8F0;
+    padding: 18px 20px;
+    border-radius: 14px;
+    transition: all 0.3s;
+    border-left: 4px solid #B22222;
+}
+
+.glossary-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+}
+
+.glossary-item .glossary-term {
+    display: block;
+    font-weight: 800;
+    font-size: 18px;
+    color: #B22222;
+    margin-bottom: 6px;
+}
+
+.glossary-item .glossary-desc {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.glossary-item .glossary-desc strong {
+    color: #2D2D2D;
+}
+
+.glossary-item .glossary-desc em {
+    color: #006437;
+    font-style: italic;
+}
+
+/* Для португальских терминов — зелёный акцент */
+.glossary-item.pt-term {
+    border-left-color: #006437;
+}
+
+.glossary-item.pt-term .glossary-term {
+    color: #006437;
+}
+
+@media (max-width: 600px) {
+    .glossary-grid {
+        grid-template-columns: 1fr;
+    }
+    .accents-ref-glossary {
+        padding: 15px;
+    }
+}
+</style>	
+</head>
+
+<body>
+<header>
+<div class="container">
+<div class="logo">🌎 LINGUOMAS</div>
+	<nav>
+	<ul>
+	<li><a href="index.html">Главная</a></li>
+	<li><a href="spanish.html">Испанский</a></li>
+	<li><a href="portugues.html">Португальский</a></li>
+	<li><a href="compare.html">Сравнить</a></li>
+	<li><a href="practice.php">Практика</a></li>
+	<li><a href="practice_advanced.php">Продвинутая практика</a></li>
+	<li><a href="downloads.html"class="active">Шпаргалки</a></li>
+	<li><a href="profile.php">Профиль</a></li>
+	<li><a href="feedback.php">Обратная связь</a></li>
+	</ul>
+	</nav>
+	</div>
+</header>
+</body>
+
+<main>
+
+<!-- ========== КНОПКА "НАВЕРХ" ========== -->
+<button id="backToTop" class="back-to-top">⬆ Наверх</button>
+
+<div class="back-nav">
+<div class="container">
+<a href="index.html" class="back-link">← На главную</a>
+</div>
+</div>
+
+<section class="downloads-section">
+<div class="container">
+<h2 class="section-title">📚 Шпаргалки по языкам</h2>
+<p class="section-subtitle">Самые важные правила — всегда под рукой</p>
+
+<!-- ТАБЫ -->
+<div class="downloads-tabs">
+<button class="downloads-tab active" data-tab="sounds">🗣️ Сложные звуки</button>
+<button class="downloads-tab" data-tab="stress">🎯 Ударение</button>
+<button class="downloads-tab" data-tab="exceptions">⚠️ Исключения</button>
+<button class="downloads-tab" data-tab="accents">🗺️ Акценты</button>
+</div>
+
+<!-- ========================================================== -->
+<!-- ВКЛАДКА 1: СЛОЖНЫЕ ЗВУКИ -->
+<!-- ========================================================== -->
+<div class="tab-content active" id="tab-sounds">
+    <p style="color:#888; margin-bottom:25px;">Нажми на 🔊, чтобы услышать звук (синтезатор речи)</p>
+    <div class="sound-grid">
+        <!-- ========================================================== -->
+        <!-- ИСПАНСКИЕ ЗВУКИ -->
+        <!-- ========================================================== -->
+        <div class="sound-group-header es-header">🇪🇸 Испанские звуки</div>
+
+        <!-- D -->
+        <div class="sound-card">
+            <span class="letter">D</span>
+            <div class="info">
+                <span class="word">dedo</span>
+                <div class="hint">[ð] — межзубный, как <em>th</em> в <em>this</em></div>
+                <span class="example">cada, verdad</span>
+            </div>
+            <button class="audio-btn" onclick="playSound('dedo', 'es-ES')">🔊</button>
+        </div>
+
+        <!-- S -->
+        <div class="sound-card">
+            <span class="letter">S</span>
+            <div class="info">
+                <span class="word">casa</span>
+                <div class="hint">[s] — всегда твёрдое «с»</div>
+                <span class="example">sol, mesa</span>
+            </div>
+            <button class="audio-btn" onclick="playSound('casa', 'es-ES')">🔊</button>
+        </div>
+
+        <!-- C / Z -->
+        <div class="sound-card">
+            <span class="letter">C / Z</span>
+            <div class="info">
+                <span class="word">gracias / zapato</span>
+                <div class="hint">[θ] — межзубный, как <em>th</em> в <em>think</em></div>
+                <span class="example">cena, zorro</span>
+            </div>
+            <button class="audio-btn" onclick="playSound('gracias', 'es-ES')">🔊</button>
+        </div>
+
+        <!-- B / V -->
+        <div class="sound-card">
+            <span class="letter">B / V</span>
+            <div class="info">
+                <span class="word">vino / boca</span>
+                <div class="hint">[β] — между «б» и «в»</div>
+                <span class="example">hablar, uva</span>
+            </div>
+            <button class="audio-btn" onclick="playSound('vino', 'es-ES')">🔊</button>
+        </div>
+
+        <!-- R (сильная) -->
+        <div class="sound-card">
+            <span class="letter">R (сильная)</span>
+            <div class="info">
+                <span class="word">perro</span>
+                <div class="hint">[r] — сильная вибрация</div>
+                <span class="example">carro, ferrocarril</span>
+            </div>
+            <button class="audio-btn" onclick="playSound('perro', 'es-ES')">🔊</button>
+        </div>
+
+        <!-- J -->
+        <div class="sound-card">
+            <span class="letter">J / G (e, i)</span>
+            <div class="info">
+                <span class="word">juego / gente</span>
+                <div class="hint">[x] — как русское «х», но сильнее</div>
+                <span class="example">jamón, hijo</span>
+            </div>
+            <button class="audio-btn" onclick="playSound('juego', 'es-ES')">🔊</button>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- ПОРТУГАЛЬСКИЕ ЗВУКИ (ТЕПЕРЬ В ТАБЛИЦЕ!) -->
+        <!-- ========================================================== -->
+        <div class="sound-group-header pt-header">🇧🇷 Португальские звуки</div>
+
+        <!-- Ã -->
+        <div class="sound-card">
+            <span class="letter pt">Ã</span>
+            <div class="info">
+                <span class="word">pão</span>
+                <div class="hint">[ɐ̃] — носовой «а» (в нос)</div>
+                <span class="example">mão, irmã</span>
+            </div>
+            <button class="audio-btn pt" onclick="playSound('pão', 'pt-BR')">🔊</button>
+        </div>
+
+        <!-- Õ -->
+        <div class="sound-card">
+            <span class="letter pt">Õ</span>
+            <div class="info">
+                <span class="word">põe</span>
+                <div class="hint">[õ] — носовой «о»</div>
+                <span class="example">ações, corações</span>
+            </div>
+            <button class="audio-btn pt" onclick="playSound('põe', 'pt-BR')">🔊</button>
+        </div>
+
+        <!-- ÃE / ÃO -->
+        <div class="sound-card">
+            <span class="letter pt">ÃE / ÃO</span>
+            <div class="info">
+                <span class="word">mãe / pão</span>
+                <div class="hint">носовые дифтонги</div>
+                <span class="example">cães, irmão</span>
+            </div>
+            <button class="audio-btn pt" onclick="playSound('mãe', 'pt-BR')">🔊</button>
+        </div>
+
+        <!-- E (открытый) -->
+        <div class="sound-card">
+            <span class="letter pt">E (открытый)</span>
+            <div class="info">
+                <span class="word">café</span>
+                <div class="hint">[ɛ] — открытый «э»</div>
+                <span class="example">você, pé</span>
+            </div>
+            <button class="audio-btn pt" onclick="playSound('café', 'pt-BR')">🔊</button>
+        </div>
+
+        <!-- E (закрытый) -->
+        <div class="sound-card">
+            <span class="letter pt">E (закрытый)</span>
+            <div class="info">
+                <span class="word">mesa</span>
+                <div class="hint">[e] — закрытый «е»</div>
+                <span class="example">verde, ela</span>
+            </div>
+            <button class="audio-btn pt" onclick="playSound('mesa', 'pt-BR')">🔊</button>
+        </div>
+
+        <!-- O (открытый) -->
+        <div class="sound-card">
+            <span class="letter pt">O (открытый)</span>
+            <div class="info">
+                <span class="word">sol</span>
+                <div class="hint">[ɔ] — открытый «о»</div>
+                <span class="example">coração, escola</span>
+            </div>
+            <button class="audio-btn pt" onclick="playSound('sol', 'pt-BR')">🔊</button>
+        </div>
+
+        <!-- O (закрытый) -->
+        <div class="sound-card">
+            <span class="letter pt">O (закрытый)</span>
+            <div class="info">
+                <span class="word">avô</span>
+                <div class="hint">[o] — закрытый «о»</div>
+                <span class="example">sopa, nó</span>
+            </div>
+            <button class="audio-btn pt" onclick="playSound('avô', 'pt-BR')">🔊</button>
+        </div>
+
+        <!-- R (горловой) -->
+        <div class="sound-card">
+            <span class="letter pt">R (горловой)</span>
+            <div class="info">
+                <span class="word">rio</span>
+                <div class="hint">[ʁ] — горловой, как французское «р»</div>
+                <span class="example">carro, rua</span>
+            </div>
+            <button class="audio-btn pt" onclick="playSound('rio', 'pt-BR')">🔊</button>
+        </div>
+
+        <!-- S (между гласными) -->
+        <div class="sound-card">
+            <span class="letter pt">S (между гласными)</span>
+            <div class="info">
+                <span class="word">casa</span>
+                <div class="hint">[z] — звонкое «з»</div>
+                <span class="example">mesa, rosa</span>
+            </div>
+            <button class="audio-btn pt" onclick="playSound('casa', 'pt-BR')">🔊</button>
+        </div>
+
+        <!-- S (в конце слога) -->
+        <div class="sound-card">
+            <span class="letter pt">S (в конце слога)</span>
+            <div class="info">
+                <span class="word">mesmo</span>
+                <div class="hint">[ʃ] — как русское «ш»</div>
+                <span class="example">mesa (в некоторых диалектах)</span>
+            </div>
+            <button class="audio-btn pt" onclick="playSound('mesmo', 'pt-BR')">🔊</button>
+        </div>
+    </div> <!-- /sound-grid -->
+</div> <!-- /tab-sounds -->
+
+<!-- ========================================================== -->
+<!-- ВКЛАДКА 2: УДАРЕНИЕ -->
+<!-- ========================================================== -->
+<div class="tab-content" id="tab-stress">
+<p style="color:#888; margin-bottom:25px;">Правила постановки ударения в испанском и португальском</p>
+<div class="stress-grid">
+<!-- Испанское ударение -->
+<div class="stress-card">
+<h3>🇪🇸 Испанское ударение</h3>
+<div class="rule">
+<strong>1. На гласную, -n или -s:</strong> ударение на <strong>предпоследний</strong> слог.<br>
+<span class="examples"><span class="es">casa</span> — [<u>ca</u>sa]</span>
+</div>
+<div class="rule">
+<strong>2. На согласную (кроме -n, -s):</strong> ударение на <strong>последний</strong> слог.<br>
+<span class="examples"><span class="es">ciudad</span> — [ciu<u>dad</u>]</span>
+</div>
+<div class="rule" style="margin-bottom:0;">
+<strong>⚠️ Исключения:</strong> слова со знаком ударения (<span class="es">canción</span>, <span class="es">está</span>) — ударение на отмеченный слог.
+</div>
+</div>
+<!-- Португальское ударение -->
+<div class="stress-card">
+<h3>🇧🇷 Португальское ударение</h3>
+<div class="rule">
+<strong>1. На гласную, -n, -s, -r, -l, -x:</strong> ударение на <strong>предпоследний</strong> слог.<br>
+<span class="examples"><span class="pt">casa</span> — [<u>ca</u>sa]</span>
+</div>
+<div class="rule">
+<strong>2. На согласную (кроме перечисленных):</strong> ударение на <strong>последний</strong> слог.<br>
+<span class="examples"><span class="pt">papel</span> — [pa<u>pel</u>]</span>
+</div>
+<div class="rule" style="margin-bottom:0;">
+<strong>⚠️ Особенности:</strong> знаки ударения (´, ^, ~) показывают ударный слог.<br>
+<span class="examples"><span class="pt">você</span> — [vo<u>cê</u>], <span class="pt">irmã</span> — [ir<u>mã</u>]</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ========================================================== -->
+<!-- ВКЛАДКА 3: ВАЖНЫЕ ИСКЛЮЧЕНИЯ -->
+<!-- ========================================================== -->
+<div class="tab-content" id="tab-exceptions">
+<p style="color:#888; margin-bottom:25px;">Самые важные неправильности и исключения</p>
+<div class="exception-list">
+<div class="exception-item">
+<div class="title"><span class="es">Ser / Estar</span> (испанский)</div>
+<div class="desc">В испанском <strong>ser</strong> — для постоянных признаков, <strong>estar</strong> — для временных состояний и местоположения.</div>
+<div class="example">✅ <span class="es">Soy estudiante</span> (постоянно) / <span class="es">Estoy cansada</span> (временно)</div>
+</div>
+<div class="exception-item pt-ex">
+<div class="title"><span class="pt">Ser / Estar</span> (португальский)</div>
+<div class="desc">В португальском <strong>ser</strong> — для постоянных признаков, <strong>estar</strong> — для временных состояний. Местоположение — <strong>estar</strong>.</div>
+<div class="example">✅ <span class="pt">Sou estudante</span> / <span class="pt">Estou cansada</span> / <span class="pt">Estou em casa</span></div>
+</div>
+<div class="exception-item">
+<div class="title"><span class="es">Ir + a + infinitivo</span> (испанский)</div>
+<div class="desc">Будущее время: <strong>voy a hablar</strong> — «я буду говорить» (близкое будущее).</div>
+<div class="example">✅ <span class="es">Voy a estudiar mañana</span></div>
+</div>
+<div class="exception-item pt-ex">
+<div class="title"><span class="pt">Ir + infinitivo</span> (португальский)</div>
+<div class="desc">Будущее время: <strong>vou falar</strong> — «я буду говорить» (тоже близкое будущее).</div>
+<div class="example">✅ <span class="pt">Vou estudar amanhã</span></div>
+</div>
+<div class="exception-item">
+<div class="title"><span class="es">Gustar</span> — «нравиться»</div>
+<div class="desc">В испанском <strong>gustar</strong> работает как «то, что нравится» — подлежащее.</div>
+<div class="example">✅ <span class="es">Me gusta el chocolate</span> (шоколад нравится мне)</div>
+</div>
+<div class="exception-item pt-ex">
+<div class="title"><span class="pt">Gostar de</span> — «нравиться»</div>
+<div class="desc">В португальском <strong>gostar de</strong> — «нравиться что-то».</div>
+<div class="example">✅ <span class="pt">Eu gosto de chocolate</span> (я люблю шоколад)</div>
+</div>
+</div>
+</div>
+</div>
+</section>		
+
+<!-- ========================================================== -->
+<!-- ВКЛАДКА: АКЦЕНТЫ (СПРАВОЧНЫЙ РАЗДЕЛ) -->
+<!-- ========================================================== -->
+<div class="tab-content" id="tab-accents">
+    <div class="accents-reference">
+        <h3 style="font-family:'Playfair Display',serif; font-size:28px; margin-bottom:15px;">🗺️ Фонетические акценты</h3>
+        <p style="color:#888; margin-bottom:25px;">Как звучат испанский и португальский в разных регионах. Нажми на регион, чтобы увидеть пример.</p>
+
+        <div class="accents-ref-tabs">
+            <button class="accents-ref-tab active" data-map="spain">🇪🇸 Испания</button>
+            <button class="accents-ref-tab" data-map="brazil">🇧🇷 Бразилия</button>
+        </div>
+
+        <div class="accents-ref-map" id="accentsRefMap">
+            <!-- Карта с регионами будет вставлена через JS -->
+        </div>
+
+        <div class="accents-ref-info" id="accentsRefInfo">
+            <div class="accents-ref-region-name" id="accentsRefRegionName">👆 Нажми на регион на карте</div>
+            <div class="accents-ref-phrase" id="accentsRefPhrase"></div>
+            <div class="accents-ref-explanation" id="accentsRefExplanation"></div>
+        </div>
+		
+		 <!-- ===== НОВЫЙ БЛОК: СПРАВОЧНАЯ ИНФОРМАЦИЯ ===== -->
+        <div class="accents-ref-glossary">
+            <h4 style="font-family:'Playfair Display',serif; font-size:22px; margin-bottom:15px;">📖 Что означают эти термины?</h4>
+			<div class="glossary-grid">
+    <!-- ИСПАНСКИЕ ТЕРМИНЫ (красный) -->
+    <div class="glossary-item">
+        <span class="glossary-term">Distinción</span>
+        <p class="glossary-desc">Различие между звуками <strong>s</strong> (свистящий) и <strong>z / c</strong> (межзубный, как английское <em>th</em> в <em>think</em>). Характерно для северной и центральной Испании.</p>
+    </div>
+    <div class="glossary-item">
+        <span class="glossary-term">Seseo</span>
+        <p class="glossary-desc">Звуки <strong>s</strong>, <strong>z</strong> и <strong>c</strong> (перед e, i) произносятся одинаково — как [s]. Встречается в Андалусии, на Канарских островах и в Латинской Америке.</p>
+    </div>
+    <div class="glossary-item">
+        <span class="glossary-term">Ceceo</span>
+        <p class="glossary-desc">Звуки <strong>s</strong>, <strong>z</strong> и <strong>c</strong> произносятся одинаково — как межзубный [θ] (как английское <em>th</em>). Встречается в некоторых районах Андалусии.</p>
+    </div>
+
+    <!-- ПОРТУГАЛЬСКИЕ ТЕРМИНЫ (зелёный) -->
+    <div class="glossary-item pt-term">   <!-- ← ДОБАВИЛИ КЛАСС -->
+        <span class="glossary-term">Nasalização</span>
+        <p class="glossary-desc">Носовое произношение гласных (<strong>ã</strong>, <strong>õ</strong>, <strong>ão</strong>). Воздух проходит через нос, создавая характерный «носовой» звук. Визитная карточка португальского языка.</p>
+    </div>
+    <div class="glossary-item pt-term">   <!-- ← ДОБАВИЛИ КЛАСС -->
+        <span class="glossary-term">R gutural</span>
+        <p class="glossary-desc">Гортанное произношение буквы <strong>R</strong> (как французское [ʁ]). Встречается в Рио-де-Жанейро и некоторых других регионах Бразилии.</p>
+    </div>
+    <div class="glossary-item pt-term">   <!-- ← ДОБАВИЛИ КЛАСС -->
+        <span class="glossary-term">S chiada</span>
+        <p class="glossary-desc">Произношение буквы <strong>S</strong> в конце слога как звука [ʃ] (как русское «ш»). Характерно для Рио-де-Жанейро и некоторых районов Португалии.</p>
+    </div>
+</div>
+           
+		 </div>	
+    </div>
+</div>				
+</main>
+
+<footer class="footer">
+<div class="container">
+<p>LinguoMas, 2026. Сделано с ❤️ для изучения языков</p>
+</div>
+</footer>
+
+<!-- ПОДКЛЮЧАЕМ JAVASCRIPT -->
+<script src="script.js"></script>
+<script>
+// ============================================================
+// ТАБЫ НА СТРАНИЦЕ ШПАРГАЛОК
+// ============================================================
+document.addEventListener('DOMContentLoaded', function() {
+const tabs = document.querySelectorAll('.downloads-tab');
+const contents = document.querySelectorAll('.tab-content');
+
+function switchTab(tabId) {
+contents.forEach(c => c.classList.remove('active'));
+const target = document.getElementById('tab-' + tabId);
+if (target) target.classList.add('active');
+
+tabs.forEach(t => {
+t.classList.remove('active');
+if (t.dataset.tab === tabId) t.classList.add('active');
+});
+}
+
+tabs.forEach(tab => {
+tab.addEventListener('click', function(e) {
+e.preventDefault();
+switchTab(this.dataset.tab);
+});
+});
+
+// Показываем активную вкладку
+const active = document.querySelector('.downloads-tab.active');
+if (active) switchTab(active.dataset.tab);
+});
+
+// ============================================================
+// АУДИО (СИНТЕЗ РЕЧИ)
+// ============================================================
+function playSound(text, lang = 'es-ES') {
+if (window.speechSynthesis) {
+const utterance = new SpeechSynthesisUtterance(text);
+utterance.lang = lang;
+utterance.rate = 0.85;
+utterance.pitch = 1;
+window.speechSynthesis.speak(utterance);
+} else {
+alert('Ваш браузер не поддерживает синтез речи. Попробуйте Chrome, Firefox или Edge.');
+}
+}
+// ============================================================
+// АКЦЕНТЫ (СПРАВОЧНЫЙ РАЗДЕЛ)
+// ============================================================
+// Данные для акцентов (если не загрузились из practice_data.js)
+const accentRegions = {
+    spain: [
+        { id: 'madrid', name: 'Мадрид', emoji: '🏛️', hint: 'Distinción', phrase: 'La casa es grande', explanation: 'В Мадриде чётко различают звуки s и z (distinción). S — свистящий, z — межзубный (как английское th).' },
+        { id: 'andalucia', name: 'Андалусия', emoji: '🌅', hint: 'Seseo / Ceceo', phrase: 'La gracia es poca', explanation: 'В Андалусии s и z могут звучать одинаково (seseo — оба как s) или как межзубный th (ceceo).' },
+        { id: 'paisvasco', name: 'Страна Басков', emoji: '⛰️', hint: 'Distinción', phrase: 'El cielo es azul', explanation: 'В Стране Басков сохраняется чёткое различие s и z, как в Мадриде.' }
+    ],
+    brazil: [
+        { id: 'rio', name: 'Рио-де-Жанейро', emoji: '🏖️', hint: 'Nasalização', phrase: 'O pão é quente', explanation: 'В Рио сильная назализация гласных. Звуки произносятся «в нос», особенно ã, õ.' },
+        { id: 'saopaulo', name: 'Сан-Паулу', emoji: '🏙️', hint: 'R gutural', phrase: 'O carro é rápido', explanation: 'В Сан-Паулу R произносится гортанно, как во французском языке (как звук [ʁ]).' },
+        { id: 'salvador', name: 'Салвадор', emoji: '🎭', hint: 'S chiada', phrase: 'A casa é velha', explanation: 'В Салвадоре S в конце слога произносится как «ш» (chiado). Например, "casas" звучит как "cazash".' }
+    ]
+};
+
+let currentRefMap = 'spain';
+
+function renderAccentsReference(map) {
+    currentRefMap = map;
+    const regions = accentRegions[map];
+    const container = document.getElementById('accentsRefMap');
+    container.innerHTML = '';
+
+    regions.forEach(region => {
+        const div = document.createElement('div');
+        div.className = 'accents-ref-region';
+        div.innerHTML = `
+            <span class="region-emoji">${region.emoji}</span>
+            <div class="region-name">${region.name}</div>
+            <div class="region-hint">${region.hint}</div>
+        `;
+        div.addEventListener('click', () => {
+            document.querySelectorAll('.accents-ref-region').forEach(r => r.classList.remove('selected'));
+            div.classList.add('selected');
+            document.getElementById('accentsRefRegionName').textContent = `${region.emoji} ${region.name}`;
+            document.getElementById('accentsRefPhrase').textContent = `"${region.phrase}"`;
+            document.getElementById('accentsRefExplanation').textContent = region.explanation;
+        });
+        container.appendChild(div);
+    });
+
+    // Обновляем активный таб
+    document.querySelectorAll('.accents-ref-tab').forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.map === map);
+    });
+}
+
+document.querySelectorAll('.accents-ref-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+        renderAccentsReference(this.dataset.map);
+    });
+});
+
+// Загружаем при старте
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('accentsRefMap')) {
+        renderAccentsReference('spain');
+    }
+});
+</script>
+</body>
+</html>
+
+  
+
+       

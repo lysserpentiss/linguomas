@@ -1,0 +1,468 @@
+<html>
+
+<head>
+<title>linguomas - compare</title>
+<link rel="stylesheet" type="text/css" href="style.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- чтобы на телефоне красиво было -->
+<link rel="preconnect" href="https://fonts.googleapis.com"> <!-- шрифты -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<style>
+.compare-section {
+padding: 40px 0 60px;
+background: #FDF8F0;
+}
+
+.compare-tabs {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+,argin-bottom: 30px;
+justify-content: center;
+}
+
+.compare-tab {
+padding: 12px 28px;
+border: 2px solid #e0e0e0;
+border-radius: 50px;
+background: white;
+font-weight: 700;
+font-size: 16px;
+cursor: pointer;
+transition: all 0.3s;
+color^ #555;
+}
+
+.compare-tab:hover {
+border-color: #B22222;
+color: #B22222;
+}
+
+.compare-tab.active {
+border-color: #B22222;
+background: #B22222;
+color: white;
+}
+
+.tab-content {
+display: none;
+animation: fadein 0.5s ease;
+}
+
+.tab-content.active {
+display: block;
+}
+
+@keyframes fadeIn {
+from {opacity:0; transform: translateY(15px); }
+to {opacity:1; transform: translateY(0); }
+}
+
+.compare-table {
+width: 100%;
+border-collapse: collapse;
+background: white;
+border-radius: 16px;
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.compare-table thead {
+background: #2D2D2D
+color: white;
+}
+
+.compare-table th {
+padding: 14px 20px;
+text-align: left;
+font-size: 16 px;
+}
+
+.compare-table td {
+padding: 12px 20px;
+border-bottom: 1px solid #f0f0f0;
+vertical=align: middle;
+}
+
+.compare-table tbody tr:hover {
+background: #FFF5F0;
+}
+
+.compare-table .es-word {
+color: #B22222;
+font-weight: 700;
+}
+
+.compare-table .pt-word {
+color: #006437;
+font-weight: 700;
+}
+
+.compare-table .translation-col {
+color: #5555;
+}
+
+.compare-table .tip-col {
+font-size: 14px;
+color: #888;
+font-style: italic;
+}
+
+.tips-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 25px;
+margin-top: 20px;
+}
+
+.tip-card {
+background: white;
+padding: 25px 30px;
+border-radius: 20px;
+box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+transition: all 0.3s;
+border-left: 5px solid #B22222;
+}
+
+.tip-card:hover {
+transform: translateY(-6px);
+box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+}
+
+.tip-card.pt-tip {
+border-left-color: #006437;
+}
+
+.tip-card h3 {
+font-family: 'Playfair Display', serif;
+font-size: 20px;
+margin-bottom: 10px;
+}
+
+.tip-card p {
+font-size: 16px;
+color: #555;
+line-height: 1.7;
+}
+
+.tip-card .example {
+background: #F5F5F5;
+padding: 10px 15px;
+border-radius: 10px;
+margin-top: 10px;
+font-weight: 600;
+}
+
+.tip-card .example .es {
+color: #B22222;
+}
+
+.tip-card .example .pt {
+color: #006437;
+}
+
+.badge-es {
+display: inline-block;
+background: #B22222;
+color: white;
+padding: 2px 12px;
+border-radius: 20px;
+font-size: 12px;
+font-weight: 700;
+margin-right: 6px;
+}
+
+.badge-pt {
+display: inline-block;
+background: #006437;
+color: white;
+padding: 2px 12px;
+border-radius: 20px;
+font-size: 12px;
+font-weight: 700;
+margin-right: 6px;
+}
+
+</style>
+</head>
+
+<body>
+<header>
+<div class="container">
+<div class="logo">🌎 LINGUOMAS</div>
+	<nav>
+	<ul>
+	<li><a href="index.html">Главная</a></li>
+	<li><a href="spanish.html">Испанский</a></li>
+	<li><a href="portugues.html">Португальский</a></li>
+	<li><a href="compare.html"class="active">Сравнить</a></li>
+	<li><a href="practice.php">Практика</a></li>
+	<li><a href="practice_advanced.php">Продвинутая практика</a></li>
+	<li><a href="downloads.html">Шпаргалки</a></li>
+	<li><a href="profile.php">Профиль</a></li>
+	<li><a href="feedback.php">Обратная связь</a></li>
+	</ul>
+	</nav>
+	</div>
+</header>
+
+<main>
+<div class="back-nav">
+<div class="container">
+<a href="index.html" class="back-link">← На главную</a>
+</div>
+</div>
+
+<section class="compare-section">
+<div class="container">
+<h2 class="section-title">🔀 Сравниваем испанский и португальский</h2>
+
+<div class="compare-tabs">
+<button class="compare-tab active" data-tab="twins">📚 Ложные друзья</button>
+<button class="compare-tab" data-tab="similar">🔄 Похожие слова</button>
+<button class="compare-tab" data-tab="grammar">🧩 Грамматика</button>
+<button class="compare-tab" data-tab="tips">💡 Лайфхаки</button>
+</div>
+
+<!-- ========================================================== -->
+<!-- ВКЛАДКА 1: ЛОЖНЫЕ ДРУЗЬЯ -->
+<!-- ========================================================== -->
+
+<div class="tab-content active" id="tab-twins">
+<h3 style="font-family:'Playfair Display',serif; font-size:28px;margin-bottom:15px;">😈 Ложные друзья переводчика</h3>
+<p style="color:#888; margin-bottom:25px;">Слова, которые выглядят одинаково, но имеют разное значение</p>
+
+<table class="compare-table">
+<thead>
+<tr>
+<th style="width:25%;">🇪🇸 Испанский</th>
+<th style="width:25%;">🇧🇷 Португальский</th>
+<th style="width:25%;">Перевод</th>
+<th style="width:25%;">Комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="es-word">embarazada</span></td>
+<td><span class="pt-word">embaraçada</span></td>
+<td class="translation">беременная / смущённая</td>
+<td class="tip-col">⚠️ Не скажи испанке <em>estoy embarazada</em>, если хочешь сказать «я смущена»!</td>
+</tr>
+<tr>
+<td><span class="es-word">ropa</span></td>
+<td><span class="pt-word">roupa</span></td>
+<td class="translation">одежда (исп.) / одежда (порт.)</td>
+<td class="tip-col">✅ А вот здесь повезло — одинаково!</td>
+</tr>
+<tr>
+<td><span class="es-word">cena</span></td>
+<td><span class="pt-word">cena</span></td>
+<td class="translation">ужин (исп.) / сцена (порт.)</td>
+<td class="tip-col">🍽️ В Испании — еда, в Бразилии — театр!</td>
+</tr>
+<tr>
+<td><span class="es-word">oficina</span></td>
+<td><span class="pt-word">oficina</span></td>
+<td class="translation">офис (исп.) / мастерская (порт.)</td>
+<td class="tip-col">🔧 В Бразилии в <em>oficina</em> чинят машины</td>
+</tr>
+<tr>
+<td><span class="es-word">gato</span></td>
+<td><span class="pt-word">gato</span></td>
+<td class="translation">кот (исп.) / кот (порт.)</td>
+<td class="tip-col">🐱 А тут совпадает! Но произношение разное</td>
+</tr>
+<tr>
+<td><span class="es-word">colchón</span></td>
+<td><span class="pt-word">colchão</span></td>
+<td class="translation">матрас (исп.) / матрас (порт.)</td>
+<td class="tip-col">🛏️ Похоже, но португальцы говорят «колшан»</td>
+</tr>
+<tr>
+<td><span class="es-word">polvo</span></td>
+<td><span class="pt-word">polvo</span></td>
+<td class="translation">пыль (исп.) / осьминог (порт.)</td>
+<td class="tip-col">🐙 Если в Бразилии закажешь <em>polvo</em> — получишь морепродукты!</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- ========================================================== -->
+<!-- ВКЛАДКА 2: ПОХОЖИЕ СЛОВА -->
+<!-- ========================================================== -->
+<div class="tab-content" id="tab-similar">
+<h3 style="font-family:'Playfair Display',serif; font-size:28px; margin-bottom:15px;">🔄 Похожие слова</h3>
+<p style="color:#888; margin-bottom:25px;">Слова, которые пишутся по-разному, но означают одно и то же</p>
+<table class="compare-table">
+<thead>
+<tr>
+<th style="width:25%;">🇪🇸 Испанский</th>
+<th style="width:25%;">🇧🇷 Португальский</th>
+<th style="width:25%;">Перевод</th>
+<th style="width:25%;">Подсказка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="es-word">ventana</span></td>
+<td><span class="pt-word">janela</span></td>
+<td class="translation">окно</td>
+<td class="tip-col">💡 Исп. <em>viento</em> (ветер) → вентиляция</td>
+</tr>
+<tr>
+<td><span class="es-word">cuchillo</span></td>
+<td><span class="pt-word">faca</span></td>
+<td class="translation">нож</td>
+<td class="tip-col">🔪 Исп. <em>cuchara</em> (ложка) — общий корень</td>
+</tr>
+<tr>
+<td><span class="es-word">piso</span></td>
+<td><span class="pt-word">chão</span></td>
+<td class="translation">пол</td>
+<td class="tip-col">🏠 В Испании <em>piso</em> — этаж/квартира</td>
+</tr>
+<tr>
+<td><span class="es-word">hermano</span></td>
+<td><span class="pt-word">irmão</span></td>
+<td class="translation">брат</td>
+<td class="tip-col">👨‍👦 Исп. <em>h</em> не читается, а в порт. появилось <em>ão</em></td>
+</tr>
+<tr>
+<td><span class="es-word">abrigo</span></td>
+<td><span class="pt-word">casaco</span></td>
+<td class="translation">пальто / куртка</td>
+<td class="tip-col">🧥 В Испании <em>abrigo</em> — убежище, в порт. — одежда</td>
+</tr>
+<tr>
+<td><span class="es-word">bolsa</span></td>
+<td><span class="pt-word">saco</span></td>
+<td class="translation">сумка</td>
+<td class="tip-col">👜 В Испании <em>bolsa</em> — биржа тоже!</td>
+</tr>
+<tr>
+<td><span class="es-word">mantequilla</span></td>
+<td><span class="pt-word">manteiga</span></td>
+<td class="translation">масло</td>
+<td class="tip-col">🧈 Оба от латинского <em>manteca</em> (сало)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- ========================================================== -->
+<!-- ВКЛАДКА 3: ГРАММАТИКА -->
+<!-- ========================================================== -->
+<div class="tab-content" id="tab-grammar">
+<h3 style="font-family:'Playfair Display',serif; font-size:28px; margin-bottom:15px;">🧩 Грамматика: ключевые различия</h3>
+<p style="color:#888; margin-bottom:25px;">Главные отличия в структуре и правилах</p>
+<table class="compare-table">
+<thead>
+<tr>
+<th style="width:25%;">🇪🇸 Испанский</th>
+<th style="width:25%;">🇧🇷 Португальский</th>
+<th style="width:25%;">Объяснение</th>
+<th style="width:25%;">Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><span class="es-word">Ser</span> / <span class="es-word">Estar</span></strong></td>
+<td><strong><span class="pt-word">Ser</span> / <span class="pt-word">Estar</span></strong></td>
+<td class="translation">оба языка различают «быть» постоянным и временным</td>
+<td class="tip-col">🔄 <span class="es-word">Soy feliz</span> vs <span class="pt-word">Estou feliz</span></td>
+</tr>
+<tr>
+<td><span class="es-word">Tú</span> / <span class="es-word">Vosotros</span></td>
+<td><span class="pt-word">Você</span> / <span class="pt-word">Vocês</span></td>
+<td class="translation">в исп. есть отдельное «ты» и «вы», в порт. — формальное обращение</td>
+<td class="tip-col">🙋 <span class="es-word">¿Tú hablas?</span> vs <span class="pt-word">Você fala?</span></td>
+</tr>
+<tr>
+<td><strong><span class="es-word">Pretérito perfecto</span></strong></td>
+<td><strong><span class="pt-word">Pretérito perfeito</span></strong></td>
+<td class="translation">в исп. сложное прошедшее, в порт. — простое</td>
+<td class="tip-col">⏳ <span class="es-word">He comido</span> vs <span class="pt-word">Comi</span></td>
+</tr>
+<tr>
+<td><span class="es-word">Le</span> / <span class="es-word">Les</span></td>
+<td><span class="pt-word">Lhe</span> / <span class="pt-word">Lhes</span></td>
+<td class="translation">местоимения для косвенного дополнения</td>
+<td class="tip-col">📦 <span class="es-word">Le doy</span> vs <span class="pt-word">Lhe dou</span></td>
+</tr>
+<tr>
+<td><span class="es-word">-ción</span> / <span class="es-word">-sión</span></td>
+<td><span class="pt-word">-ção</span></td>
+<td class="translation">существительные на -ción в исп. → -ção в порт.</td>
+<td class="tip-col">📖 <span class="es-word">canción</span> → <span class="pt-word">canção</span></td>
+</tr>
+<tr>
+<td><span class="es-word">-mente</span></td>
+<td><span class="pt-word">-mente</span></td>
+<td class="translation">наречия одинаково!</td>
+<td class="tip-col">✅ <span class="es-word">rápidamente</span> / <span class="pt-word">rapidamente</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- ========================================================== -->
+<!-- ВКЛАДКА 4: ЛАЙФХАКИ -->
+<!-- ========================================================== -->
+<div class="tab-content" id="tab-tips">
+<h3 style="font-family:'Playfair Display',serif; font-size:28px; margin-bottom:15px;">💡 Лайфхаки: как не запутаться</h3>
+<p style="color:#888; margin-bottom:25px;">Самые полезные советы для изучения двух языков одновременно</p>
+<div class="tips-grid">
+<div class="tip-card">
+<h3>🧠 Правило «-ción»</h3>
+<p>Если в испанском слово заканчивается на <strong>-ción</strong>, в португальском оно почти всегда превращается в <strong>-ção</strong>.</p>
+<div class="example">
+<span class="es">canción</span> → <span class="pt">canção</span> (песня)<br>
+<span class="es">corazón</span> → <span class="pt">coração</span> (сердце)
+</div>
+</div>
+<div class="tip-card pt-tip">
+<h3>🇧🇷 Убираем «ñ»</h3>
+<p>В португальском нет буквы <strong>ñ</strong>. Она превращается в <strong>nh</strong>.</p>
+<div class="example">
+<span class="es">españo</span><span style="font-weight:700; color:#B22222;">l</span> → <span class="pt">espanho</span><span style="font-weight:700; color:#006437;">l</span><br>
+<span class="es">montaña</span> → <span class="pt">montanha</span>
+</div>
+</div>
+<div class="tip-card">
+<h3>🎯 Запоминай по окончаниям</h3>
+<p>Многие испанские слова на <strong>-dad</strong> превращаются в португальские <strong>-dade</strong>.</p>
+<div class="example">
+<span class="es">ciudad</span> → <span class="pt">cidade</span> (город)<br>
+<span class="es">verdad</span> → <span class="pt">verdade</span> (правда)
+</div>
+</div>
+<div class="tip-card pt-tip">
+<h3>🍽️ Еда — отдельная история</h3>
+<p>В испанском <strong>comida</strong> — это еда, а в португальском <strong>comida</strong> — тоже еда!</p>
+<div class="example">
+✅ <span class="es">La comida</span> / <span class="pt">A comida</span> — еда<br>
+⚠️ Но <span class="es">cena</span> — это ужин (исп.) и сцена (порт.)
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>				
+<!-- ========== КНОПКА "НАВЕРХ" ========== -->
+<button id="backToTop" class="back-to-top">⬆ Наверх</button>
+</main>
+
+<footer class="footer">
+<div class="container">
+<p>LinguoMas, 2026. Сделано с ❤️ для изучения языков</p>
+</div>
+</footer>
+
+ <!-- ===== JS ДЛЯ ТАБОВ ===== -->
+<script src="script.js"></script>
+</body>
+</html>
+
+  
+
+       
