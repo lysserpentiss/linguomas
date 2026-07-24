@@ -14,6 +14,9 @@ const urlsToCache = [
   '/style.css',
   '/script.js',
   '/practice_data.js',
+  '/images/brazil.jpg',
+  '/images/spain.jpg',
+  '/images/bs.jpeg',
   '/images/icon-192.png',
   '/images/icon-512.png'
 ];
